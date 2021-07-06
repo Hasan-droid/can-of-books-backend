@@ -34,6 +34,7 @@ app.get('/authorize', (req,res)=>{
     }
     res.send(user)
   })
+  res.send( token);
 })
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
