@@ -5,6 +5,11 @@ const express = require('express');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const jwksClient = require('jwks-rsa');
+const database=require('./DataBase')
+const booksroute=require('./Controller/books.controller');
+const bookscontroller = require('./Controller/books.controller');
+
+
 
 const app = express();
 app.use(cors());
@@ -32,9 +37,13 @@ app.get('/authorize', (req,res)=>{
     if (err){
       res.send('invalid token'); 
     }
-    res.send(user)
+  //  res.send(user)
   })
-  res.send( token);
+ // res.send( token);
 })
+
+app.get('/database', database)
+app.get('/books',bookscontroller)
+
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
