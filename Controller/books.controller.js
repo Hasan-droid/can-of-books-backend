@@ -1,9 +1,6 @@
 'use strict'
 const usermodel=require('../Model/user.model')
-// const mongoose=require('mongoose')
-// mongoose.connect('mongodb://localhost:27017/favBooks',
-//     { useNewUrlParser: true, useUnifiedTopology: true }
-// );
+
 const bookscontroller=(req , res)=>{
 const search=req.query.email;
 usermodel.findOne({email:search}, (err,user)=>{
