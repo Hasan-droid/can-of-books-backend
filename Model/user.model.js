@@ -1,12 +1,13 @@
-'user strict'
+'use strict'
 const mongoose=require('mongoose');
 const bookSchema=require('./books.model')
 const userSchema=mongoose.Schema({
-     email:{type:String},
+    email:{type:String},
     book:[bookSchema]
 })
 
-const userModel=mongoose.model("Userschema" ,userSchema)
+
+const usermodel=mongoose.model("Userschema" ,userSchema)
 
 
 
@@ -22,8 +23,8 @@ const userModel=mongoose.model("Userschema" ,userSchema)
 //         status:'Active'
 //     }
 
-//     const hasan=new userModel({
-//         email:"baydoun.net@hotmail.com",
+//     const hasan=new usermodel({
+//         email:"baydoun.net2011@gmail.com",
 //         book:[richdadpoordad , whyrichgettingricher]
 //     })
 //     hasan.save();
@@ -32,4 +33,4 @@ const userModel=mongoose.model("Userschema" ,userSchema)
    
 // }
 
-module.exports=userModel;
+ module.exports=usermodel;
