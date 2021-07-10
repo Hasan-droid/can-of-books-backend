@@ -59,8 +59,24 @@ const deleteBook=(req,res)=>{
 
 }
 
+const updatebook=(req , res)=>{
+    const {name,description,status,email}= req.body;
+    const book_id=Number(req.params.index);
+    usermodel.findOne({email:email}, (error, books)=>{
+        if (error) {
+            res.send(error);
+        }
+        else{
+            books.book.splice(book_id,1,{name:name,description:description,status:status});
+            books.save();
+            res.send(books.book)
+        }
+    })
+}
+
 module.exports = {
     bookscontroller,
     createbook,
-    deleteBook
+    deleteBook,
+    updatebook
 };

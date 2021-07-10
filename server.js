@@ -14,7 +14,8 @@ const database = require('./DataBase')
 // }=require('./Controller/books.controller');
 const { bookscontroller,
   createbook,
-  deleteBook } = require('./Controller/books.controller');
+  deleteBook,
+  updatebook } = require('./Controller/books.controller');
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -52,6 +53,7 @@ app.get('/database', database)
 app.get('/books', bookscontroller)
 app.post('/add-book', createbook);
 app.delete('/removebook/:index', deleteBook)
+app.put('/updatebook/:index',updatebook);
 
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
